@@ -27,41 +27,39 @@
         .header-content {
             display: flex;
             align-items: center;
-            gap: 20px;
+            width: 100%;
         }
-        .text-content {
+        .logo-container {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+        }
+        .logo-container img {
+            width: 200px;
+            height: auto;
+        }
+        .text-content {
             margin-top: 10px;
         }
         .header h1 {
             font-family: "Mulish", sans-serif;
             font-size: 36px;
             font-weight: bold;
-            margin: 0;
+            margin: 10px 0 0;
         }
         .sub-header {
             font-family: "Mulish", sans-serif;
             font-size: 20px;
-            color: white;
-            margin-top: 10px;
-        }
-        .header img {
-            width: 200px;
-            height: auto;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            color: #333;
+            margin-top: 5px;
         }
         .social-icons {
             display: flex;
             gap: 15px;
             align-items: center;
+            justify-content: flex-end;
+            flex: 1;
         }
         .social-icons a {
             display: inline-block;
@@ -71,18 +69,20 @@
             height: 24px;
             border-radius: 50%;
         }
-        .header-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            color: #333;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="header-wrapper">
-            <div class="header-content">
+        <div class="header-content">
+            <div class="logo-container">
                 <img src="assets/pi_icon.png" alt="Pi Network Logo">
                 <div class="text-content">
                     <h1>Welcome to the FAQ & Support Page</h1>
@@ -105,6 +105,7 @@
             </div>
         </div>
     </div>
+    
     <div class="container">
         <div class="faq-section">
             <h2>Support</h2>
@@ -126,6 +127,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         function toggleFaq(element) {
             var p = element.nextElementSibling;
