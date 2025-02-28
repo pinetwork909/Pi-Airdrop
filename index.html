@@ -32,7 +32,7 @@
         }
 
         .header-left img {
-            width: 200px; /* Reverted size */
+            width: 200px; 
             height: auto;
         }
 
@@ -43,14 +43,15 @@
         }
 
         .header-right a img {
-            width: 24px; /* Reverted size */
+            width: 24px;
             height: 24px;
             border-radius: 50%;
         }
 
+        /* Hide top social media icons on mobile & tablet */
         @media screen and (max-width: 1024px) {
             .header-right {
-                display: none; /* Hide social media icons on mobile and tablet */
+                display: none;
             }
         }
 
@@ -64,13 +65,13 @@
 
         .title-section h1 {
             margin: 0;
-            font-size: 32px; /* Increased size */
+            font-size: 32px;
             font-weight: bold;
         }
 
         .title-section h2 {
             margin: 10px 0 0;
-            font-size: 24px; /* Increased size */
+            font-size: 24px;
             font-weight: normal;
         }
 
@@ -85,11 +86,34 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 20px;
+        }
+
+        .faq {
+            margin-bottom: 10px;
+        }
+
+        .faq h3 {
+            cursor: pointer;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .faq p {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
         /* Footer Section */
         .footer {
             background-color: #423f87;
             padding: 20px;
-            display: flex;
+            display: none; /* Hide footer by default */
             justify-content: center;
             gap: 15px;
         }
@@ -100,9 +124,17 @@
             border-radius: 50%;
         }
 
+        /* Show bottom social media icons only on mobile & tablet */
         @media screen and (max-width: 1024px) {
             .footer {
-                display: flex; /* Show footer social media icons on mobile and tablet */
+                display: flex;
+            }
+        }
+
+        /* Hide bottom social media icons on laptop */
+        @media screen and (min-width: 1025px) {
+            .footer {
+                display: none;
             }
         }
     </style>
@@ -138,13 +170,15 @@
 
     <!-- Content Section -->
     <div class="container">
-        <h3>Please read the FAQs and Community Wiki before using the Support Portal. Dive deeper into Pi’s vision, mission, and protocol <a href="#">here</a>.</h3>
-
         <div class="faq-section">
             <h2>Support</h2>
             <div class="faq">
                 <h3 onclick="toggleFaq(this)">Read the FAQs</h3>
-                <p>Explore our frequently asked questions to find quick answers.</p>
+                <p>
+                    Explore our frequently asked questions to find quick answers. 
+                    Please read the FAQs and Community Wiki before using the Support Portal. 
+                    Dive deeper into Pi’s vision, mission, and protocol <a href="#">here</a>.
+                </p>
             </div>
             <div class="faq">
                 <h3 onclick="toggleFaq(this)">Look for Answers in the Community Wiki</h3>
@@ -153,7 +187,7 @@
         </div>
     </div>
 
-    <!-- Footer Section -->
+    <!-- Footer Section (Visible only on mobile & tablet) -->
     <div class="footer">
         <a href="https://twitter.com/PiCoreTeam" target="_blank">
             <img src="assets/twitter_icon.png" alt="Twitter">
