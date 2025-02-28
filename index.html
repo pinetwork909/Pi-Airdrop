@@ -18,7 +18,7 @@
         .header {
             background-color: #423f87;
             color: white;
-            padding: 20px;
+            padding: 40px 20px; /* Restored proper height */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -28,19 +28,14 @@
 
         .left-content {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .left-content img {
             width: 120px;
             height: auto;
-            margin-right: 15px;
-            margin-top: 20px; /* Increased top margin for better spacing */
-        }
-
-        .text-content {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 10px; /* Space below the Pi Network icon */
         }
 
         .text-content h1 {
@@ -113,6 +108,9 @@
 
     <!-- Content Section -->
     <div class="container">
+        <h2>Please read the FAQs and Community Wiki before using the Support Portal.</h2>
+        <p>Dive deeper into Pi’s vision, mission, and protocol <a href="#">here</a>.</p>
+
         <div class="faq-section">
             <h2>Support</h2>
             <div class="faq">
@@ -122,14 +120,6 @@
             <div class="faq">
                 <h3 onclick="toggleFaq(this)">Look for Answers in the Community Wiki</h3>
                 <p>Check out the community-driven knowledge base for more in-depth guidance.</p>
-            </div>
-        </div>
-        <div class="contact-section">
-            <h2>Contact Us</h2>
-            <div class="contact">
-                <p>Email: <a href="mailto:support@minepi.com">support@minepi.com</a></p>
-                <p>Twitter: <a href="https://twitter.com/minepi">@minepi</a></p>
-                <p>Community Forum: <a href="https://minepi.com/community">Visit here</a></p>
             </div>
         </div>
     </div>
