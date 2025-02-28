@@ -32,7 +32,7 @@
         }
 
         .header-left img {
-            width: 200px;
+            width: 400px; /* Increased size to double */
             height: auto;
         }
 
@@ -43,9 +43,15 @@
         }
 
         .header-right a img {
-            width: 24px;
-            height: 24px;
+            width: 17px; /* Decreased to 70% of previous size */
+            height: 17px;
             border-radius: 50%;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .header-right {
+                display: none; /* Hide social media icons on mobile and tablet */
+            }
         }
 
         /* Title Section */
@@ -58,13 +64,13 @@
 
         .title-section h1 {
             margin: 0;
-            font-size: 32px;
+            font-size: 24px;
             font-weight: bold;
         }
 
         .title-section h2 {
             margin: 10px 0 0;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: normal;
         }
 
@@ -111,8 +117,7 @@
 
     <!-- Content Section -->
     <div class="container">
-        <h2>Please read the FAQs and Community Wiki before using the Support Portal.</h2>
-        <p>Dive deeper into Pi’s vision, mission, and protocol <a href="#">here</a>.</p>
+        <h3>Please read the FAQs and Community Wiki before using the Support Portal. Dive deeper into Pi’s vision, mission, and protocol <a href="#">here</a>.</h3>
 
         <div class="faq-section">
             <h2>Support</h2>
