@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ & Support | Pi Network</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+        
         body {
             font-family: "Inter", sans-serif;
             margin: 0;
@@ -15,19 +17,22 @@
         .header {
             background-color: #423f87;
             color: white;
-            padding: 100px 50px;
-            font-size: 36px;
-            font-weight: bold;
+            padding: 120px 50px;
             text-align: left;
         }
-        .header img {
-            height: 50px;
+        .header h1 {
+            font-family: "Mulish", sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
         }
         .sub-header {
+            font-family: "Mulish", sans-serif;
             font-size: 20px;
             color: white;
             padding-bottom: 30px;
             text-align: left;
+            margin-top: 10px;
         }
         .container {
             max-width: 1200px;
@@ -78,22 +83,34 @@
             display: flex;
             gap: 10px;
         }
-        .social-icons img {
-            height: 24px;
-        }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="assets/pi_icon.png" alt="Pi Network Logo">
-        <div class="social-icons">
-            <a href="https://facebook.com/minepi"><img src="assets/facebook_icon.png" alt="Facebook"></a>
-            <a href="https://twitter.com/minepi"><img src="assets/twitter_icon.png" alt="Twitter"></a>
-            <a href="https://instagram.com/minepi"><img src="assets/instagram_icon.png" alt="Instagram"></a>
-            <a href="https://youtube.com/minepi"><img src="assets/youtube_icon.png" alt="YouTube"></a>
-        </div>
+        <img src="assets/Pi-Network.png" alt="Pi Network Logo">
+        <h1>Welcome to the FAQ & Support Page</h1>
+        <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
+        <ul>
+            <li id="social-in-menu" class="button_social_group">
+                <a target="_blank" rel="noopener" href="https://twitter.com/PiCoreTeam">
+                    <span class="screen-reader-text">x-twitter</span>
+                    <i class="icon-salient-x-twitter" aria-hidden="true"></i>
+                </a>
+                <a target="_blank" rel="noopener" href="https://www.facebook.com/PiCoreTeam/">
+                    <span class="screen-reader-text">facebook</span>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PiCoreTeam">
+                    <span class="screen-reader-text">youtube</span>
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/pi_network/">
+                    <span class="screen-reader-text">instagram</span>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="sub-header">Welcome to the FAQ & Support Page<br>Follow steps below to find resources that may answer your support needs</div>
     <div class="container">
         <div class="faq-section">
             <h2>Support</h2>
