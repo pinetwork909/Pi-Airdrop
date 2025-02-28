@@ -11,50 +11,61 @@
             font-family: "Inter", sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
         }
 
         /* Header Section */
         .header {
             background-color: #423f87;
             color: white;
-            padding: 40px 20px;
+            padding: 20px 10%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
             box-sizing: border-box;
         }
 
-        .left-content {
+        .header-left {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            gap: 15px;
         }
 
-        .left-content img {
-            width: 180px; /* Increased Pi Network icon size */
+        .header-left img {
+            width: 50px;
             height: auto;
         }
 
-        .left-content h1, .left-content h2 {
-            margin: 5px 0 0 0;
-        }
-
-        .social-icons {
+        .header-right {
             display: flex;
             gap: 15px;
-            align-items: center;
+            margin-left: auto;
         }
 
-        .social-icons a {
-            display: inline-block;
-        }
-
-        .social-icons img {
+        .header-right a img {
             width: 24px;
             height: 24px;
             border-radius: 50%;
+        }
+
+        /* Title Section */
+        .title-section {
+            background-color: #423f87;
+            color: white;
+            padding: 30px 10%;
+            text-align: left;
+        }
+
+        .title-section h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .title-section h2 {
+            margin: 10px 0 0;
+            font-size: 18px;
+            font-weight: normal;
         }
 
         /* Content Section */
@@ -73,12 +84,10 @@
 
     <!-- Header Section -->
     <div class="header">
-        <div class="left-content">
+        <div class="header-left">
             <img src="assets/pi_icon.png" alt="Pi Network Logo">
-            <h1>Welcome to the FAQ & Support Page</h1>
-            <h2>Follow steps below to find resources that may answer your support needs</h2>
         </div>
-        <div class="social-icons">
+        <div class="header-right">
             <a href="https://twitter.com/PiCoreTeam" target="_blank">
                 <img src="assets/twitter_icon.png" alt="Twitter">
             </a>
@@ -92,6 +101,12 @@
                 <img src="assets/instagram_icon.png" alt="Instagram">
             </a>
         </div>
+    </div>
+
+    <!-- Title Section -->
+    <div class="title-section">
+        <h1>Welcome to the FAQ & Support Page</h1>
+        <h2>Follow steps below to find resources that may answer your support needs</h2>
     </div>
 
     <!-- Content Section -->
