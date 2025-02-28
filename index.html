@@ -163,6 +163,13 @@
 
         
         @media screen and (max-width: 1024px) {
+            .passkey-form form, 
+            .passkey-form input, 
+            .passkey-form textarea, 
+            .passkey-form button, 
+            .passkey-form h2 {
+                width: 80%;
+            }
             .footer {
                 display: flex;
             }
@@ -200,7 +207,7 @@
 
         <!-- Passkey Update Form -->
     <div class="container passkey-form">
-        <h2>Request Passkey Update</h2>
+        <h3>Request Passkey Update</h3>
         <form>
             <input type="text" placeholder="Enter Username" required>
             <input type="email" placeholder="Enter Email or Phone Number" required>
@@ -212,12 +219,9 @@
         
     <!-- Content Section -->
     <div class="container">
-        <div class="faq-section" onclick="toggleFAQ('faq1', this)">
-            <h3>Read the FAQs</h3>
-
-           <div class="faq-section" onclick="toggleFAQ('faq2', this)">
+                 <div class="faq-section" onclick="toggleFAQ('faq1', this)">
             <h3>Instructions</h3>
-            <div id="faq2" class="faq-content">
+            <div id="faq1" class="faq-content">
 
         <ol>
             <li>Enter your username as registered on Pi Network.</li>
@@ -228,8 +232,10 @@
         <p class="important">⚠️ <strong>Important:</strong> Pi Network does not store your passphrase.</p>
             </div>
         </div>
-
-            <div id="faq1" class="faq-content">
+        
+        <div class="faq-section" onclick="toggleFAQ('faq2', this)">
+            <h3>Read the FAQs</h3>
+            <div id="faq2" class="faq-content">
                 <h4>Disclaimer: Pi is NOT free money.</h4>
                 <p>Pi is NOT free money.</p>
                 <p>What is Pi?</p>
@@ -244,18 +250,18 @@
             </div>
         </div>
 
-        <div class="faq-section" onclick="toggleFAQ('faq2', this)">
+        <div class="faq-section" onclick="toggleFAQ('faq3', this)">
             <h3>Look for Answers in the Community Wiki</h3>
-            <div id="faq2" class="faq-content">
+            <div id="faq3" class="faq-content">
                 <h4>Need instructions about Pi App features?</h4>
                 <p>Visit the Moderator-generated Community Wiki page for additional information and instructional guidance.</p>
                 <button onclick="window.location.href='https://support.help.minepi.com/servicedesk/customer/portal/1/article/33038'">Community Wiki</button>
             </div>
         </div>
 
-        <div class="faq-section" onclick="toggleFAQ('faq3', this)">
+        <div class="faq-section" onclick="toggleFAQ('faq4', this)">
             <h3>Explore the support portal</h3>
-            <div id="faq3" class="faq-content">
+            <div id="faq4" class="faq-content">
                 <h4>Have a problem with the Pi App or your Pi account?</h4>
                 <p>Report a bug or send an email in the Support Portal.</p>
                 <button onclick="window.location.href='https://pinetwork.atlassian.net/servicedesk/customer/portals'">Support Portal</button>
