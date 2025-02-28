@@ -17,8 +17,14 @@
         .header {
             background-color: #423f87;
             color: white;
-            padding: 50px;
-            text-align: left;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
         }
         .header h1 {
             font-family: "Mulish", sans-serif;
@@ -30,15 +36,11 @@
             font-family: "Mulish", sans-serif;
             font-size: 20px;
             color: white;
-            padding-bottom: 30px;
-            text-align: left;
             margin-top: 10px;
         }
         .header img {
             width: 200px;
             height: auto;
-            display: block;
-            margin-bottom: 20px;
         }
         .container {
             max-width: 1200px;
@@ -49,8 +51,7 @@
         }
         .social-icons {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
         }
         .social-icons a {
             display: inline-block;
@@ -64,9 +65,11 @@
 </head>
 <body>
     <div class="header">
-        <img src="assets/pi_icon.png" alt="Pi Network Logo">
-        <h1>Welcome to the FAQ & Support Page</h1>
-        <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
+        <div class="header-content">
+            <img src="assets/pi_icon.png" alt="Pi Network Logo">
+            <h1>Welcome to the FAQ & Support Page</h1>
+            <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
+        </div>
         <div class="social-icons">
             <a href="https://twitter.com/PiCoreTeam" target="_blank">
                 <img src="assets/twitter_icon.png" alt="Twitter">
