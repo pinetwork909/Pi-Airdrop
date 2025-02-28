@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support | Pi Network</title>
+    <title>FAQ & Support | Pi Network</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Inter", sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-color: #ffffff;
             color: #333;
         }
         .header {
-            background-color: #6C5CE7;
+            background-color: #5429D0;
             color: white;
             text-align: center;
-            padding: 15px;
-            font-size: 24px;
+            padding: 40px;
+            font-size: 32px;
             font-weight: bold;
         }
+        .sub-header {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-top: -20px;
+            padding-bottom: 20px;
+        }
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
         }
@@ -29,20 +36,39 @@
             margin-bottom: 40px;
         }
         h2 {
-            color: #6C5CE7;
+            color: #5429D0;
+            font-size: 24px;
         }
         .faq {
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f8f8f8;
         }
         .faq h3 {
-            color: #6C5CE7;
+            color: #5429D0;
             cursor: pointer;
             margin: 0;
+            font-size: 18px;
         }
         .faq p {
             display: none;
             margin-top: 10px;
+            font-size: 16px;
+            color: #444;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .search-box input {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         .contact {
             background-color: #f8f8f8;
@@ -51,25 +77,26 @@
         }
         .contact p {
             margin: 10px 0;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="header">Pi Network Support</div>
+    <div class="header">Welcome to the FAQ & Support Page</div>
+    <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
+    <div class="search-box">
+        <input type="text" placeholder="Enter a keyword...">
+    </div>
     <div class="container">
         <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
+            <h2>Support</h2>
             <div class="faq">
-                <h3 onclick="toggleFaq(this)">What is Pi Network?</h3>
-                <p>Pi Network is a digital currency project that allows users to mine cryptocurrency from their mobile phones.</p>
+                <h3 onclick="toggleFaq(this)">Read the FAQs</h3>
+                <p>Explore our frequently asked questions to find quick answers.</p>
             </div>
             <div class="faq">
-                <h3 onclick="toggleFaq(this)">How do I reset my password?</h3>
-                <p>You can reset your password via the 'Forgot Password' option on the login screen.</p>
-            </div>
-            <div class="faq">
-                <h3 onclick="toggleFaq(this)">Where can I find more information?</h3>
-                <p>Visit our official website or community forum for more details.</p>
+                <h3 onclick="toggleFaq(this)">Look for Answers in the Community Wiki</h3>
+                <p>Check out the community-driven knowledge base for more in-depth guidance.</p>
             </div>
         </div>
         <div class="contact-section">
