@@ -18,24 +18,27 @@
         .header {
             background-color: #423f87;
             color: white;
-            padding: 40px 20px; /* Restored proper height */
+            padding: 40px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%; /* Ensures full width */
         }
 
         .left-content {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            gap: 15px;
         }
 
         .left-content img {
-            width: 120px;
+            width: 140px; /* Restored Pi Network icon size */
             height: auto;
-            margin-bottom: 10px; /* Space below the Pi Network icon */
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
         }
 
         .text-content h1 {
