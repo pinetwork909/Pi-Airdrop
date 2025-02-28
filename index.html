@@ -19,12 +19,19 @@
             padding: 40px;
             font-size: 32px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 50px;
+        }
+        .header img {
+            height: 50px;
         }
         .sub-header {
             text-align: center;
             font-size: 18px;
-            color: #666;
-            margin-top: -20px;
+            color: white;
+            margin-top: -10px;
             padding-bottom: 20px;
         }
         .container {
@@ -51,24 +58,15 @@
             cursor: pointer;
             margin: 0;
             font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .faq p {
             display: none;
             margin-top: 10px;
             font-size: 16px;
             color: #444;
-        }
-        .search-box {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .search-box input {
-            width: 60%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
         }
         .contact {
             background-color: #f8f8f8;
@@ -79,14 +77,26 @@
             margin: 10px 0;
             font-size: 16px;
         }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons img {
+            height: 24px;
+        }
     </style>
 </head>
 <body>
-    <div class="header">Welcome to the FAQ & Support Page</div>
-    <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
-    <div class="search-box">
-        <input type="text" placeholder="Enter a keyword...">
+    <div class="header">
+        <img src="/mnt/data/pi_icon.png" alt="Pi Network Logo">
+        <div class="social-icons">
+            <a href="https://facebook.com/minepi"><img src="/mnt/data/facebook_icon.png" alt="Facebook"></a>
+            <a href="https://twitter.com/minepi"><img src="/mnt/data/twitter_icon.png" alt="Twitter"></a>
+            <a href="https://instagram.com/minepi"><img src="/mnt/data/instagram_icon.png" alt="Instagram"></a>
+            <a href="https://youtube.com/minepi"><img src="/mnt/data/youtube_icon.png" alt="YouTube"></a>
+        </div>
     </div>
+    <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
     <div class="container">
         <div class="faq-section">
             <h2>Support</h2>
