@@ -3,154 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ & Support | Pi Network</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS for styling -->
+    <title>Support | Pi Network</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #fff;
+            color: #333;
         }
         .header {
-            background-color: #6A329F;
+            background-color: #6C5CE7;
             color: white;
-            padding: 20px;
             text-align: center;
-            font-size: 20px;
+            padding: 15px;
+            font-size: 24px;
             font-weight: bold;
-        }
-        .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px;
-            gap: 20px;
         }
         .container {
-            width: 35%;
-            max-width: 350px;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .instructions {
-            width: 35%;
-            max-width: 350px;
-            background: white;
+            max-width: 1000px;
+            margin: 20px auto;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            font-size: 14px;
-            color: gray;
         }
-        .container h2, .instructions h2 {
-            text-align: center;
-            color: #6A329F;
+        .faq-section, .contact-section {
+            margin-bottom: 40px;
         }
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #333;
-            font-family: Arial, sans-serif;
+        h2 {
+            color: #6C5CE7;
         }
-        textarea {
-            height: 120px;
-            resize: none;
+        .faq {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
         }
-        .btn {
-            width: 100%;
-            height: 50px;
-            background-color: #6A329F;
-            color: white;
-            border: none;
+        .faq h3 {
+            color: #6C5CE7;
             cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-top: 15px;
+            margin: 0;
         }
-        .btn:hover {
-            background-color: #582b84;
-        }
-        .message {
-            text-align: center;
-            font-size: 14px;
+        .faq p {
+            display: none;
             margin-top: 10px;
         }
-        .info {
-            text-align: center;
-            font-size: 14px;
-            color: gray;
-            margin-top: 15px;
+        .contact {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
         }
-        .info a {
-            color: #6A329F;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .container, .instructions {
-                width: 90%;
-            }
+        .contact p {
+            margin: 10px 0;
         }
     </style>
-    <script>
-        function validatePassphrase() {
-            var passphrase = document.getElementById("passphrase").value.trim();
-            var message = document.getElementById("message");
-            var words = passphrase.split(/\s+/).filter(word => word.length > 0);
-
-            if (words.length !== 24) {
-                message.innerHTML = "Invalid Passphrase. Please enter exactly 24 words.";
-                message.style.color = "red";
-            } else {
-                message.innerHTML = "Request submitted successfully. Our team will contact you.";
-                message.style.color = "green";
-            }
-        }
-    </script>
 </head>
 <body>
-    <div class="header">Welcome to Pi Network Support</div>
-    <div class="main-container">
-        <div class="container">
-            <h2>Request Passkey Update</h2>
-            <input type="text" placeholder="Enter Username">
-            <input type="text" placeholder="Enter Email or Phone Number">
-            <textarea id="passphrase" placeholder="Enter your 24-word passphrase"></textarea>
-            <p id="message" class="message"></p>
-            <button class="btn" onclick="validatePassphrase()">Submit Request</button>
-            <p class="info"> 
-                As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. 
-                Recovery of passphrase is currently impossible. 
-                <a href="https://minepi.com/support/" target="_blank" style="color: #6A329F; text-decoration: none; font-weight: bold;">
-                    For more info, click here.
-                </a>
-            </p>
+    <div class="header">Pi Network Support</div>
+    <div class="container">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <h3 onclick="toggleFaq(this)">What is Pi Network?</h3>
+                <p>Pi Network is a digital currency project that allows users to mine cryptocurrency from their mobile phones.</p>
+            </div>
+            <div class="faq">
+                <h3 onclick="toggleFaq(this)">How do I reset my password?</h3>
+                <p>You can reset your password via the 'Forgot Password' option on the login screen.</p>
+            </div>
+            <div class="faq">
+                <h3 onclick="toggleFaq(this)">Where can I find more information?</h3>
+                <p>Visit our official website or community forum for more details.</p>
+            </div>
         </div>
-        <div class="instructions">
-            <h2>Instructions</h2>
-            <p>1. Enter your <strong>username</strong> as registered on Pi Network.</p>
-            <p>2. Provide your <strong>email or phone number</strong> associated with your Pi Wallet.</p>
-            <p>3. Enter your <strong>24-word passphrase</strong> exactly as given during wallet creation.</p>
-            <p>4. Click "Submit Request" to send your request for review.</p>
-            <p>5. <strong>To find your username:</strong></p>
-            <ul>
-                <li>Open the <strong>Pi Network</strong> app.</li>
-                <li>Go to <strong>Profile</strong>.</li>
-                <li>Find your <strong>username</strong>, <strong>phone number</strong>, and <strong>email ID</strong>.</li>
-            </ul>
-            <p>⚠️ <strong>Important:</strong> Pi Network <strong>does not store</strong> your passphrase. Ensure you have entered it correctly.</p>
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact">
+                <p>Email: <a href="mailto:support@minepi.com">support@minepi.com</a></p>
+                <p>Twitter: <a href="https://twitter.com/minepi">@minepi</a></p>
+                <p>Community Forum: <a href="https://minepi.com/community">Visit here</a></p>
+            </div>
         </div>
     </div>
+    <script>
+        function toggleFaq(element) {
+            var p = element.nextElementSibling;
+            p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
