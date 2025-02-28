@@ -26,13 +26,13 @@
         }
         .header-content {
             display: flex;
-            flex-direction: row;
             align-items: center;
             gap: 20px;
         }
         .text-content {
             display: flex;
             flex-direction: column;
+            margin-top: 10px;
         }
         .header h1 {
             font-family: "Mulish", sans-serif;
@@ -71,31 +71,39 @@
             height: 24px;
             border-radius: 50%;
         }
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="header-content">
-            <img src="assets/pi_icon.png" alt="Pi Network Logo">
-            <div class="text-content">
-                <h1>Welcome to the FAQ & Support Page</h1>
-                <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
+        <div class="header-wrapper">
+            <div class="header-content">
+                <img src="assets/pi_icon.png" alt="Pi Network Logo">
+                <div class="text-content">
+                    <h1>Welcome to the FAQ & Support Page</h1>
+                    <div class="sub-header">Follow steps below to find resources that may answer your support needs</div>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://twitter.com/PiCoreTeam" target="_blank">
+                    <img src="assets/twitter_icon.png" alt="Twitter">
+                </a>
+                <a href="https://www.facebook.com/PiCoreTeam/" target="_blank">
+                    <img src="assets/facebook_icon.png" alt="Facebook">
+                </a>
+                <a href="https://www.youtube.com/c/PiCoreTeam" target="_blank">
+                    <img src="assets/youtube_icon.png" alt="YouTube">
+                </a>
+                <a href="https://www.instagram.com/pi_network/" target="_blank">
+                    <img src="assets/instagram_icon.png" alt="Instagram">
+                </a>
             </div>
         </div>
-    </div>
-    <div class="social-icons" style="max-width: 1200px; margin: 10px auto; display: flex; justify-content: center;">
-        <a href="https://twitter.com/PiCoreTeam" target="_blank">
-            <img src="assets/twitter_icon.png" alt="Twitter">
-        </a>
-        <a href="https://www.facebook.com/PiCoreTeam/" target="_blank">
-            <img src="assets/facebook_icon.png" alt="Facebook">
-        </a>
-        <a href="https://www.youtube.com/c/PiCoreTeam" target="_blank">
-            <img src="assets/youtube_icon.png" alt="YouTube">
-        </a>
-        <a href="https://www.instagram.com/pi_network/" target="_blank">
-            <img src="assets/instagram_icon.png" alt="Instagram">
-        </a>
     </div>
     <div class="container">
         <div class="faq-section">
