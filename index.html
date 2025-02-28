@@ -48,13 +48,12 @@
             border-radius: 50%;
         }
 
-        /* Hide top social media icons on mobile & tablet */
         @media screen and (max-width: 1024px) {
             .header-right {
                 display: none;
             }
             .header-left img {
-                width: 100px; /* Half of the original 200px */
+                width: 100px;
             }
         }
 
@@ -98,8 +97,9 @@
             transition: background-color 0.3s;
         }
 
-        .faq-section:hover {
-            background-color: #ddd;
+        .faq-section.open {
+            background-color: #ffffff !important;
+            border: 1px solid #ddd;
         }
 
         .faq-content {
@@ -160,10 +160,10 @@
 
     <!-- Content Section -->
     <div class="container">
-        <div class="faq-section" onclick="toggleFAQ('faq1')">
+        <div class="faq-section" onclick="toggleFAQ('faq1', this)">
             <h3>Read the FAQs</h3>
             <div id="faq1" class="faq-content">
-            <h4>Disclaimer: Pi is NOT free money.</h4>
+                <h4>Disclaimer: Pi is NOT free money.</h4>
                 <p>Pi is NOT free money.</p>
                 <p>What is Pi?</p>
                 <p>Is Pi real? There is some confusing commentary on Pi online.</p>
@@ -173,36 +173,25 @@
                 <p>How does the Pi app work?</p>
                 <p>How do I mine more Pi coins?</p>
                 <p>Do I need to leave the app open to mine? Does the app drain my battery or data?</p>
-                <p>Why was the mining rate higher in the past?</p>
-                <p>Why is the Pi Referral Team program NOT multi-level marketing?</p>
-                <p>What is the utility of Pi?</p>
-                <p>How can I use my Pi on the Mainnet?</p>
-                <p>What is the Ambassador role? How does the Referral Team work?</p>
-                <p>What are Pi Security Circles and the Security Circle Mining Reward? What is, and how do I become a Pi Contributor?</p>
-                <p>Can I transfer my Pi? What is the timeline for transferring Pi?</p>
-                <p>Can I mine from more than one device? How does Pi Network prevent fake accounts, bots, etc. from mining Pi?</p>
-                <p>Are there countries or regions restricted from accessing Pi?</p>                
-                <button onclick="window.location.href='https://minepi.com/support/'" style="background-color: #423f87; color: white; border: none; padding: 10px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">Support</button>
+                <button onclick="window.location.href='https://minepi.com/support/'">Support</button>
             </div>
         </div>
 
-        <div class="faq-section" onclick="toggleFAQ('faq2')">
+        <div class="faq-section" onclick="toggleFAQ('faq2', this)">
             <h3>Look for Answers in the Community Wiki</h3>
             <div id="faq2" class="faq-content">
-                            <h4>Need instructions about Pi App features?</h4>
-                <p>Visit the Moderator-generated Community Wiki page for additional information and instructional guidance, for example, how to sign up, how to verify your account, or how to troubleshoot issues.
-
-Community Wiki pages are edited and maintained by the Pi Chat Moderator community and are not official statements of the Pi Core Team.</p>
-                <button onclick="window.location.href='https://support.help.minepi.com/servicedesk/customer/portal/1/article/33038'" style="background-color: #423f87; color: white; border: none; padding: 10px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">Community Wiki</button>
+                <h4>Need instructions about Pi App features?</h4>
+                <p>Visit the Moderator-generated Community Wiki page for additional information and instructional guidance.</p>
+                <button onclick="window.location.href='https://support.help.minepi.com/servicedesk/customer/portal/1/article/33038'">Community Wiki</button>
             </div>
         </div>
 
-        <div class="faq-section" onclick="toggleFAQ('faq3')">
+        <div class="faq-section" onclick="toggleFAQ('faq3', this)">
             <h3>Explore the support portal</h3>
             <div id="faq3" class="faq-content">
-            <h4>Have a problem with the Pi App or your Pi account?</h4>
-                <p>Report a bug or send an email in the Support Portal. Please read the relevant Community Wiki on this issue before submitting an email request.</p>
-                <button onclick="window.location.href='https://pinetwork.atlassian.net/servicedesk/customer/portals'" style="background-color: #423f87; color: white; border: none; padding: 10px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">Support Portal</button>
+                <h4>Have a problem with the Pi App or your Pi account?</h4>
+                <p>Report a bug or send an email in the Support Portal.</p>
+                <button onclick="window.location.href='https://pinetwork.atlassian.net/servicedesk/customer/portals'">Support Portal</button>
             </div>
         </div>
     </div>
@@ -224,12 +213,23 @@ Community Wiki pages are edited and maintained by the Pi Chat Moderator communit
     </div>
 
     <script>
-        function toggleFAQ(id) {
+        function toggleFAQ(id, element) {
             var content = document.getElementById(id);
+            var allSections = document.querySelectorAll('.faq-section');
+
+            allSections.forEach(section => {
+                if (section !== element) {
+                    section.classList.remove("open");
+                    section.querySelector(".faq-content").style.display = "none";
+                }
+            });
+
             if (content.style.display === "block") {
                 content.style.display = "none";
+                element.classList.remove("open");
             } else {
                 content.style.display = "block";
+                element.classList.add("open");
             }
         }
     </script>
