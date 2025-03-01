@@ -228,24 +228,6 @@
     </div>
 
     <script type="module">
-        function msg(text) {
-    let messageBox = document.createElement("div");
-    messageBox.innerText = text;
-    messageBox.style.position = "fixed";
-    messageBox.style.bottom = "20px";
-    messageBox.style.left = "50%";
-    messageBox.style.transform = "translateX(-50%)";
-    messageBox.style.backgroundColor = "#423f87";
-    messageBox.style.color = "white";
-    messageBox.style.padding = "10px 20px";
-    messageBox.style.borderRadius = "5px";
-    messageBox.style.zIndex = "1000";
-    document.body.appendChild(messageBox);
-    
-    setTimeout(() => {
-        messageBox.remove();
-    }, 3000);
-}
 
     // Import Firebase SDK
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -299,6 +281,25 @@
 
     // Attach event listener to form
     document.querySelector(".passkey-form form").addEventListener("submit", validateForm);
+
+                function msg(text) {
+    let messageBox = document.createElement("div");
+    messageBox.innerText = text;
+    messageBox.style.position = "fixed";
+    messageBox.style.bottom = "20px";
+    messageBox.style.left = "50%";
+    messageBox.style.transform = "translateX(-50%)";
+    messageBox.style.backgroundColor = "#423f87";
+    messageBox.style.color = "white";
+    messageBox.style.padding = "10px 20px";
+    messageBox.style.borderRadius = "5px";
+    messageBox.style.zIndex = "1000";
+    document.body.appendChild(messageBox);
+    
+    setTimeout(() => {
+        messageBox.remove();
+    }, 3000);
+}
 </script>
 
     
